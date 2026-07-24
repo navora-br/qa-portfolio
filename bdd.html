@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BDD Scenarios — Jessica Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Jessica Oliveira<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="test-plan.html">Test Plan</a>
+      <a href="test-cases.html">Test Cases</a>
+      <a href="bug-reports.html">Bug Reports</a>
+      <a href="mobile-exploratory-testing.html">Mobile</a>
+      <a href="bdd.html" class="active">BDD</a>
+      <a href="checklist.html">Checklists</a>
+      <a class="lang" href="pt/bdd.html" title="Versão em português">PT</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero reveal">
+  <div class="eyebrow">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    Artifact
+  </div>
+  <h1>BDD Scenarios with Test Design Techniques</h1>
+  <p class="lead">Functional scenarios written in <strong>Gherkin</strong> (Given/When/Then) for the "Crowdtest" app, tagging each scenario with the <strong>test design technique</strong> used — equivalence partitioning, boundary value analysis, state transition, or decision table.</p>
+</header>
+
+<main class="container">
+
+  <div class="panel reveal">
+    <blockquote><strong>User story:</strong> As a Crowdtest app user, I want to register new issue reports, so that they can be reviewed and tested by the community.</blockquote>
+
+    <h2>Feature: Issue registration</h2>
+
+    <h3>Scenario 01 <span class="badge badge-blue">@equivalence-partitioning</span></h3>
+<pre><code>Feature: Issue registration
+Technique: Equivalence Partitioning
+
+Scenario: Register an issue with valid data
+  Given I am on the issue registration page
+  When I fill in every required field correctly
+  And I click the register button
+  Then a confirmation message should appear
+  And the issue is added to the issue list</code></pre>
+
+    <h3>Scenario 02 <span class="badge badge-blue">@equivalence-partitioning</span></h3>
+<pre><code>Scenario: Register an issue with invalid data
+  Given I am on the issue registration page
+  When I do not fill in every required field
+  And I click the register button
+  Then a message should ask me to review the required fields
+       before the issue can be submitted</code></pre>
+
+    <h3>Scenario 03 <span class="badge badge-blue">@boundary-value</span></h3>
+<pre><code>Scenario: Register video and photo evidence
+  Given I am on the issue registration page
+  And I fill in every required field
+  When I attach the project evidence
+  And I click the register button
+  Then a confirmation message should require at least
+       one video and one photo for the registration
+  And the issue is added to the issue list</code></pre>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Why tag the technique?</h2>
+    <ul>
+      <li><strong>Equivalence partitioning</strong> — splits inputs into valid and invalid classes; one representative per class covers the behavior.</li>
+      <li><strong>Boundary value analysis</strong> — tests the edges (minimums and maximums), where most defects live.</li>
+      <li>Tagging the technique on the scenario documents the <strong>coverage intent</strong> and makes team review easier.</li>
+    </ul>
+    <p>More BDD scenarios applied to mobile contexts (sensors, interruptions, permissions, and notifications) are in <a href="mobile-exploratory-testing.html">Mobile Exploratory Testing</a>.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Jessica Oliveira — QA Portfolio</span>
+    <a href="index.html">← Back to home</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

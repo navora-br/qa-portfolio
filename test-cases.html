@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Cases — Jessica Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Jessica Oliveira<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="test-plan.html">Test Plan</a>
+      <a href="test-cases.html" class="active">Test Cases</a>
+      <a href="bug-reports.html">Bug Reports</a>
+      <a href="mobile-exploratory-testing.html">Mobile</a>
+      <a href="bdd.html">BDD</a>
+      <a href="checklist.html">Checklists</a>
+      <a class="lang" href="pt/casos-de-teste.html" title="Versão em português">PT</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero reveal">
+  <div class="eyebrow">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+    Artifact
+  </div>
+  <h1>Test Cases</h1>
+  <p class="lead">I work with test spreadsheets in three layers: <strong>Planning</strong> (features, browsers, and user profiles) → <strong>Mapping</strong> (scenarios with complexity, type, priority, and automation flags) → <strong>Modeling/Execution</strong> (detailed steps, status, and evidence).</p>
+</header>
+
+<main class="container">
+
+  <div class="panel reveal">
+    <h2>Final project — "Wheat Lovers" website (agriculture)</h2>
+    <p><span class="badge badge-blue">Scope: home page</span> <span class="badge badge-gray">Chrome · Firefox · Edge</span> <span class="badge badge-gray">iOS · Android</span></p>
+    <h3>Scenario mapping</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Test Case</th><th>Complexity</th><th>Type</th><th>Test data</th><th>Automatable</th><th>Regression</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>CN0001 — Menu: validate Commercial button</td><td>Simple</td><td>Functional positive</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0002 — Menu: validate Industrial button</td><td>Simple</td><td>Functional positive</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0003 — Menu: validate Infrastructure button</td><td>Simple</td><td>Functional positive</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0004 — Menu: validate Resources button</td><td>Simple</td><td>Functional positive</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0005 — Menu: validate Utilities button</td><td>Simple</td><td>Functional positive</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0006 — Home page layout</td><td>Very simple</td><td>Functional positive</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0007 — Validate phone field</td><td>Simple</td><td>Functional positive</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0008 — Open the site in Firefox</td><td>Very simple</td><td>Usability</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-gray">P2</span></td></tr>
+          <tr><td>CN0009 — Open the site in Edge</td><td>Very simple</td><td>Usability</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-gray">P2</span></td></tr>
+          <tr><td>CN0010 — Open the site in Chrome</td><td>Very simple</td><td>Usability</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-gray">P2</span></td></tr>
+          <tr><td>CN0011 — Open the site on iOS</td><td>Very simple</td><td>Usability</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-gray">P2</span></td></tr>
+          <tr><td>CN0012 — Open the site on Android</td><td>Very simple</td><td>Usability</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="badge badge-gray">P2</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <blockquote><strong>Acceptance criterion (user-story format):</strong> As a Wheat Lovers customer, I want every website feature to work correctly, so that I can access all company information and contact channels.</blockquote>
+    <h3>Sample test case in Gherkin</h3>
+<pre><code>Scenario: CN0001 - Menu - Validate Commercial button
+  Given I am on the Wheat Lovers home page
+  When I click the Commercial button in the menu
+  Then the Commercial page should load</code></pre>
+    <div class="evidence">
+      <figure>
+        <img src="assets/img/evidencia-pagina-commercial.png" alt="Commercial page loaded via direct navigation" loading="lazy">
+        <figcaption>Execution evidence — Commercial page loaded via direct navigation</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="panel reveal">
+    <h2>System testing — Delivery form (2 pages)</h2>
+    <p>In this project I ran the <strong>full cycle</strong>: 24+ mapped scenarios, executed one by one with status and notes.</p>
+    <h3>Mapping excerpt with execution results</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scenario</th><th>Test case</th><th>Result</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>CN0001 — Register delivery (user/non-user)</td><td>Full flow: name, phone, address, contact preference, date, delivery window, shipping method, data agreement, submit</td><td><span class="badge badge-green">Passed</span></td><td></td></tr>
+          <tr><td>CN0002 — Enter name</td><td>Type a name in the name field</td><td><span class="badge badge-green">Passed</span></td><td></td></tr>
+          <tr><td>CN0003 — Enter phone (digits)</td><td>Type digits only in the Phone field</td><td><span class="badge badge-green">Passed</span></td><td></td></tr>
+          <tr><td>CN0003.1 — Phone with special characters and letters</td><td>Type special characters and letters</td><td><span class="badge badge-amber">Bug found</span></td><td>The field must not accept special characters or letters</td></tr>
+          <tr><td>CN0004 — Enter address</td><td>Type an address in the Address field</td><td><span class="badge badge-green">Passed</span></td><td></td></tr>
+          <tr><td>CN0005 — Enter e-mail</td><td>Locate the e-mail field</td><td><span class="badge badge-red">Failed</span></td><td>There is no field labeled "Email" on the form</td></tr>
+          <tr><td>CN0006 — Contact preference: e-mail</td><td>Check "e-mail"</td><td><span class="badge badge-green">Passed</span></td><td></td></tr>
+          <tr><td>CN0007 — Contact preference: phone</td><td>Check "phone"</td><td><span class="badge badge-green">Passed</span></td><td></td></tr>
+          <tr><td>CN0016 — Delivery window: change selected option</td><td>Change an already-selected option</td><td><span class="badge badge-blue">Video evidence</span></td><td></td></tr>
+          <tr><td>CN0020 — Undo shipping method choice</td><td>Try to uncheck the chosen method</td><td><span class="badge badge-blue">Video evidence</span></td><td><a href="assets/video/cn0020-desfazer-metodo-envio.webm">Watch video</a></td></tr>
+          <tr><td>CN0022 — Uncheck personal data agreement</td><td>Uncheck the data-processing agreement</td><td><span class="badge badge-blue">Video evidence</span></td><td><a href="assets/video/cn0022-dessinalar-acordo.webm">Watch video</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <blockquote>Video evidence was recorded during execution — click the links above to watch.</blockquote>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Regression testing — Feedback page</h2>
+    <p>After system changes, I mapped and executed the mandatory regression scenarios:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Test Case</th><th>Type</th><th>Regression</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>CN0001 — Enter date</td><td>Functional positive</td><td>Yes</td><td><span class="badge badge-gray">P2</span></td></tr>
+          <tr><td>CN0002 — Enter score on a 10-point scale</td><td>Functional positive</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0003 — Enter feedback (max. 255 characters)</td><td>Regression</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0004 — Submit button</td><td>Functional positive</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0005 — Submitted data screen</td><td>Regression</td><td>Yes</td><td><span class="badge badge-blue">P1</span></td></tr>
+          <tr><td>CN0008 — Submit with no data filled</td><td>Functional negative</td><td>No</td><td><span class="badge badge-blue">P1</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Test data (data mass)</h2>
+    <p>For the sign-up tests I built <strong>test data sets</strong> for individual and business customers (names, e-mails, Brazilian CPF/CNPJ tax IDs generated with 4devs and FakeRestApi):</p>
+    <div class="evidence">
+      <figure>
+        <img src="assets/img/massa-dados-pessoa-fisica.png" alt="Individual customer test data" loading="lazy">
+        <figcaption>Individual customer test data</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/massa-dados-falha-juridico.png" alt="Business sign-up blocked by Federal Revenue validation" loading="lazy">
+        <figcaption>Business sign-up blocked by the Federal Revenue validation service — documented as an environment restriction</figcaption>
+      </figure>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Jessica Oliveira — QA Portfolio</span>
+    <a href="index.html">← Back to home</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

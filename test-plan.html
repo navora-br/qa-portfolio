@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Plan — Jessica Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Jessica Oliveira<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="test-plan.html" class="active">Test Plan</a>
+      <a href="test-cases.html">Test Cases</a>
+      <a href="bug-reports.html">Bug Reports</a>
+      <a href="mobile-exploratory-testing.html">Mobile</a>
+      <a href="bdd.html">BDD</a>
+      <a href="checklist.html">Checklists</a>
+      <a class="lang" href="pt/plano-de-teste.html" title="Versão em português">PT</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero reveal">
+  <div class="eyebrow">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
+    Artifact
+  </div>
+  <h1>Test Plan</h1>
+  <p class="lead">Test plan I wrote for an online school platform (training environment), covering the <strong>sign-up</strong> and <strong>login</strong> features.</p>
+</header>
+
+<main class="container">
+
+  <div class="panel reveal">
+    <h2>Introduction</h2>
+    <p>The platform is an online school offering courses for in-demand careers. Through the website or app, students access courses with qualified instructors, delivered through video lessons and assignments. The site must be accessible from any computer or mobile device connected to the internet. Core features: sign-up, login, and content access.</p>
+    <h3>Architecture</h3>
+    <p>The implementation framework is cloud-based.</p>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Features</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>Expected behavior</th><th>Verifications</th><th>Acceptance criteria</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Sign-up</strong></td>
+            <td>After entering name, e-mail, phone number, and password and clicking "Sign up", the user is redirected to the success page and receives an account-activation e-mail.</td>
+            <td>
+              <ul>
+                <li>Minimum 8-character password with letters, numbers, and special characters</li>
+                <li>Redirect to the success page</li>
+                <li>Failure message for duplicate user</li>
+                <li>Failure message when the password doesn't meet minimum requirements</li>
+                <li>Failure message for missing/incomplete required fields</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>New e-mail address</li>
+                <li>Valid password</li>
+                <li>Valid phone number</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Login</strong></td>
+            <td>Entering a valid e-mail and password logs the user into the platform. A user already logged in on another device must be able to log in again.</td>
+            <td>
+              <ul>
+                <li>Successful login</li>
+                <li>Invalid user</li>
+                <li>Invalid password</li>
+                <li>Required field not filled</li>
+                <li>Invalid phone number</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>System accessibility</li>
+                <li>Correct screen redirect</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Test Strategy</h2>
+    <h3>Scope</h3>
+    <p>This plan covers all features described in the table above. Video-lesson playback is <strong>out of scope</strong>.</p>
+    <p>Testing will run at all levels:</p>
+    <ul>
+      <li><strong>Non-functional testing</strong> — usability and performance testing to detect improvement opportunities.</li>
+      <li><strong>Automated testing</strong> — end-to-end tests for the login and sign-up features.</li>
+      <li><strong>Manual testing</strong> — all features tested manually by the QA team, following the test scenario documentation and this Test Plan.</li>
+      <li><strong>Beta release</strong> — a beta version released to 30 pre-registered users before the public release.</li>
+    </ul>
+    <h3>Environment &amp; Tools</h3>
+    <p>Tests run in the <strong>staging environment</strong>, configured identically to production, with test data previously generated by the QA team.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tool</th><th>Team</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Postman</td><td>QA</td><td>API testing</td></tr>
+          <tr><td>Selenium</td><td>QA</td><td>End-to-end testing</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Bug Severity Classification</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Severity</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><span class="badge badge-red">Blocker</span></td><td>Blocks testing of a function or feature; crashes the application; a broken button prevents using the feature entirely; blocks the release</td></tr>
+          <tr><td>2</td><td><span class="badge badge-amber">Major</span></td><td>Feature does not work as expected; unusual input causes irreversible effects</td></tr>
+          <tr><td>3</td><td><span class="badge badge-blue">Moderate</span></td><td>Feature misses some acceptance criteria but works overall; success/error message not displayed</td></tr>
+          <tr><td>4</td><td><span class="badge badge-gray">Minor</span></td><td>Almost no functional impact but hurts the experience; typos; small UI glitches</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Definition of Done</h3>
+    <p>A feature is considered done when it passes all verifications and tests described in this Test Plan, has no open bugs above <em>Minor</em> severity, and passes a business validation owned by the product team.</p>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Test Plan — Final Project: "Wheat Lovers" website</h2>
+    <p>For the final project of my QA studies, I started from a <strong>user story</strong> and built the test plan for a company website:</p>
+    <blockquote>"As a business owner in agriculture, I want to validate the functionality of my new website. I need something simple and intuitive."</blockquote>
+    <p>The plan followed the same structure as above (introduction, features with acceptance criteria, strategy, severities, Definition of Done), focused on <strong>usability</strong>: working menu links, readable text, and a phone-number interest form accepting only valid numbers.</p>
+    <p>The test cases and bugs found in this project are in <a href="test-cases.html">Test Cases</a> and <a href="bug-reports.html">Bug Reports</a>.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Jessica Oliveira — QA Portfolio</span>
+    <a href="index.html">← Back to home</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

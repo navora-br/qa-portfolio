@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bug Reports — Jessica Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Jessica Oliveira<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="test-plan.html">Test Plan</a>
+      <a href="test-cases.html">Test Cases</a>
+      <a href="bug-reports.html" class="active">Bug Reports</a>
+      <a href="mobile-exploratory-testing.html">Mobile</a>
+      <a href="bdd.html">BDD</a>
+      <a href="checklist.html">Checklists</a>
+      <a class="lang" href="pt/bug-reports.html" title="Versão em português">PT</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero reveal">
+  <div class="eyebrow">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg>
+    Artifact
+  </div>
+  <h1>Bug Reports</h1>
+  <p class="lead">My bug report template includes: <strong>unique ID</strong>, <strong>reproduction steps</strong>, <strong>environment</strong> (staging/production), <strong>severity</strong>, <strong>user impact</strong>, <strong>status</strong>, and <strong>expected behavior</strong> — always with screenshot or video evidence.</p>
+</header>
+
+<main class="container">
+
+  <div class="panel reveal">
+    <h2>Contact form — 7 bugs found</h2>
+    <p>Functional testing of a contact form (name, e-mail, phone) in the staging environment.</p>
+
+    <h3>BUG-001 — Phone field accepts letters and special characters <span class="badge badge-amber">Medium</span></h3>
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr><td><strong>Steps</strong></td><td>On the form page, type a letter, space, or special character into the phone field</td></tr>
+          <tr><td><strong>Actual result</strong></td><td>The field accepts the invalid characters</td></tr>
+          <tr><td><strong>Expected behavior</strong></td><td>Accept digits only</td></tr>
+          <tr><td><strong>Environment</strong></td><td>Staging</td></tr>
+          <tr><td><strong>Impact</strong></td><td>Customers can submit wrong data and never be contacted</td></tr>
+          <tr><td><strong>Status</strong></td><td><span class="badge badge-blue">Open</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="evidence">
+      <figure><img src="assets/img/bug-form-aceita-letras.png" alt="Field accepts letters" loading="lazy"><figcaption>Evidence — field accepting letters</figcaption></figure>
+    </div>
+
+    <h3>BUG-002 — Form submits with every field empty <span class="badge badge-amber">Medium</span></h3>
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr><td><strong>Steps</strong></td><td>Without filling any field, click "Send"</td></tr>
+          <tr><td><strong>Actual result</strong></td><td>The system accepts the empty submission</td></tr>
+          <tr><td><strong>Expected behavior</strong></td><td>All required fields must be validated before submission</td></tr>
+          <tr><td><strong>Environment</strong></td><td>Staging</td></tr>
+          <tr><td><strong>Impact</strong></td><td>Customers can submit an empty form and never be contacted</td></tr>
+          <tr><td><strong>Status</strong></td><td><span class="badge badge-blue">Open</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="evidence">
+      <figure><img src="assets/img/bug-form-envio-vazio.png" alt="Empty submission accepted" loading="lazy"><figcaption>Evidence — empty submission accepted</figcaption></figure>
+    </div>
+
+    <h3>BUG-003 — E-mail field accepts text without a domain <span class="badge badge-amber">Medium</span></h3>
+    <ul>
+      <li><strong>Steps:</strong> type letters, numbers, spaces, or special characters without an e-mail domain.</li>
+      <li><strong>Expected:</strong> accept only e-mails with a valid domain (e.g., <code>@gmail.com</code>) and no spaces.</li>
+      <li><strong>Status:</strong> Open</li>
+    </ul>
+
+    <h3>BUG-004 to BUG-006 — Partial field validation <span class="badge badge-amber">Medium</span></h3>
+    <p>The system accepts the submission when <strong>only one</strong> field (name, phone, or e-mail) is filled — correctly or not — without validating the other required fields.</p>
+    <ul>
+      <li><strong>Expected:</strong> all fields must be filled for the submission to be accepted.</li>
+      <li><strong>Status:</strong> Open</li>
+    </ul>
+
+    <h3>BUG-007 — Page does not load in Firefox <span class="badge badge-red">Urgent</span></h3>
+    <ul>
+      <li><strong>Steps:</strong> open the form URL in Mozilla Firefox.</li>
+      <li><strong>Actual result:</strong> the page does not load.</li>
+      <li><strong>Expected:</strong> the site must load in every supported browser.</li>
+      <li><strong>Status:</strong> Open</li>
+    </ul>
+    <div class="evidence">
+      <figure><img src="assets/img/evidencia-firefox.png" alt="Firefox does not load the page" loading="lazy"><figcaption>Evidence — page fails to load in Firefox</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Final project — "Wheat Lovers" website</h2>
+    <p>In the final project, every failed test case generated a bug report. Highlights:</p>
+
+    <h3>BUG-0001 to 0005 — No menu button responds <span class="badge badge-red">Urgent</span></h3>
+    <p>Every top-menu button (Commercial, Industrial, Infrastructure, Resources, Utilities) <strong>does not respond to clicks</strong>, blocking access to those pages.</p>
+    <ul>
+      <li><strong>Severity:</strong> Urgent — blocks the site's main navigation.</li>
+      <li><strong>Expected:</strong> each button must load its corresponding page.</li>
+    </ul>
+
+    <h3>BUG-0006.1 — Menu in a foreign language <span class="badge badge-amber">Medium</span></h3>
+    <p>The menu is in English on a Portuguese-language site — customers may not understand it. <strong>Expected:</strong> translate the menu buttons.</p>
+
+    <h3>BUG-0006.2 — Insufficient text contrast <span class="badge badge-gray">Low</span></h3>
+    <p>The text color below the main headline makes reading difficult. <strong>Expected:</strong> use a color that contrasts with the background (accessibility).</p>
+
+    <h3>BUG-0007.2 — "I'm interested" button inactive <span class="badge badge-amber">Medium</span></h3>
+    <p>After typing a phone number and clicking "I'm interested", the button does not submit — customers cannot register interest.</p>
+    <div class="evidence">
+      <figure><img src="assets/img/bug-botao-tenho-interesse.png" alt="Interest button inactive" loading="lazy"><figcaption>Evidence — interest button inactive</figcaption></figure>
+      <figure><img src="assets/img/bug-celular-aceita-letras.png" alt="Phone field accepts letters" loading="lazy"><figcaption>Evidence — phone field accepts letters</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Usability testing — Delivery form</h2>
+    <p>Findings logged during a usability session:</p>
+    <ol>
+      <li>The "phone" field accepts special characters, letters, and spaces.</li>
+      <li>There is no customer e-mail field as a contact option.</li>
+      <li>Navigating to page 2 and back changes the "save" button's language.</li>
+      <li>The "delivery date" field accepts special characters, letters, and spaces.</li>
+      <li>The "delivery time" field doesn't state a unit (hours, days, weeks) — plain numbers can be misread.</li>
+      <li>In "choose a shipping method", every option can be checked at once and the choice can't be undone.</li>
+      <li>The form is accepted with every field empty.</li>
+      <li>With both phone <strong>and</strong> e-mail selected, the system doesn't register the "phone" choice.</li>
+      <li>The "save" button performs no action at all.</li>
+    </ol>
+    <div class="evidence">
+      <figure><img src="assets/img/teste-usabilidade-tela.png" alt="Usability test screen" loading="lazy"><figcaption>Usability test screen</figcaption></figure>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Jessica Oliveira — QA Portfolio</span>
+    <a href="index.html">← Back to home</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

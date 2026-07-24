@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile Exploratory Testing — Jessica Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Jessica Oliveira<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="test-plan.html">Test Plan</a>
+      <a href="test-cases.html">Test Cases</a>
+      <a href="bug-reports.html">Bug Reports</a>
+      <a href="mobile-exploratory-testing.html" class="active">Mobile</a>
+      <a href="bdd.html">BDD</a>
+      <a href="checklist.html">Checklists</a>
+      <a class="lang" href="pt/teste-exploratorio-mobile.html" title="Versão em português">PT</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero reveal">
+  <div class="eyebrow">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+    Artifact
+  </div>
+  <h1>Mobile Exploratory Testing</h1>
+  <p class="lead">Exploratory testing performed on <strong>real devices</strong> (iPhone 13 Pro Max, iPhone 14 Plus Max, Android tablet) and <strong>emulators</strong> (Android Studio), covering hardware resources, sensors, interruptions, permissions, connectivity, battery levels, and internationalization.</p>
+</header>
+
+<main class="container">
+
+  <div class="panel reveal">
+    <h2>"Crowdtest" app — iPhone 13 Pro Max (real device)</h2>
+
+    <h3>Explored scenarios</h3>
+<pre><code>Scenario: Access my issue reports
+  Given the user is logged into the Crowdtest app
+  When they tap "my issues" in the main menu
+  Then the user's issue projects should be displayed
+
+Scenario: Menu navigation (hamburger icon)
+  Given the user is logged into the Crowdtest app
+  And picks any option from the main menu
+  When they are on that page
+  Then the menu icon should appear at the top corner to reach any other page
+
+Scenario: Edit country of residence in the profile
+  Given the user is on "My profile" &gt; "Personal data"
+  When they change the location from Brazil to United States
+  Then the list of US states should be displayed for selection</code></pre>
+    <div class="evidence">
+      <figure><img src="assets/img/mobile-cenario-1.png" alt="My issues screen" loading="lazy"><figcaption>Scenario 1 — my issues</figcaption></figure>
+      <figure><img src="assets/img/mobile-menu-icone.png" alt="Menu navigation" loading="lazy"><figcaption>Scenario 2 — menu navigation</figcaption></figure>
+      <figure><img src="assets/img/mobile-cenario-2.png" alt="App navigation" loading="lazy"><figcaption>App navigation</figcaption></figure>
+    </div>
+
+    <h3>Bug found — US state list does not load <span class="badge badge-amber">Medium</span></h3>
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr><td><strong>Steps</strong></td><td>In the profile's state field, select "United States" as the country</td></tr>
+          <tr><td><strong>Actual result</strong></td><td>The state list for the country is not displayed</td></tr>
+          <tr><td><strong>Expected</strong></td><td>Display the list of US states</td></tr>
+          <tr><td><strong>Impact</strong></td><td>Users cannot update the state where they live</td></tr>
+          <tr><td><strong>Status</strong></td><td><span class="badge badge-blue">Open</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="evidence">
+      <figure><img src="assets/img/mobile-perfil-estados.png" alt="Profile country selection" loading="lazy"><figcaption>Profile — country selection</figcaption></figure>
+      <figure><img src="assets/img/mobile-bug-estados-eua.png" alt="US states bug" loading="lazy"><figcaption>Bug — US state list missing</figcaption></figure>
+    </div>
+
+    <h3>Bug found — App ignores device language (i18n) <span class="badge badge-red">Urgent</span></h3>
+    <p>With the device set to <strong>English</strong>, the app's main menu and pages remain in Portuguese.</p>
+    <ul>
+      <li><strong>Expected:</strong> the app should follow the OS language or offer a manual language switch.</li>
+      <li><strong>Impact:</strong> a foreign user cannot use the app. <strong>Status:</strong> Open</li>
+    </ul>
+
+    <h3>Installation testing (App Store)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scenario</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Install the app from the App Store</td><td><span class="badge badge-green">Installed successfully</span></td></tr>
+          <tr><td>Interrupt the installation midway</td><td><span class="badge badge-green">App is not installed</span></td></tr>
+          <tr><td>Uninstall and reinstall</td><td><span class="badge badge-green">Reinstalled successfully</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <blockquote>Video evidence recorded for every scenario (installation, interruption, uninstall, language switch, profile editing, and WhatsApp notifications).</blockquote>
+
+    <h3>Interruption testing</h3>
+<pre><code>Scenario: Interruption by a phone call
+  Given I am filling in data in the Crowdtest app
+  When I receive a phone call
+  And the call ends
+  Then the previously entered data should remain intact
+
+Scenario: Interruption by a read SMS
+  Given I am filling in data in the Crowdtest app
+  When I receive an SMS, read it, and return to the app
+  Then the previously entered data should remain intact</code></pre>
+
+    <h3>Notification testing — WhatsApp</h3>
+<pre><code>Scenario: Banner notification while using another app
+  Given I am using another application
+  When I receive a WhatsApp notification
+  Then a banner notification should appear at the top of the screen
+  And the message should remain on the lock screen</code></pre>
+  </div>
+
+  <div class="panel reveal">
+    <h2>"Mentorama" app — Android emulators (Android Studio)</h2>
+
+    <h3>Battery-level testing</h3>
+    <p>I explored the app with the emulator set to three battery levels: <strong>80%, 49%, and 9%</strong>.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Battery level</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>80%</td><td><span class="badge badge-green">No bugs found</span></td></tr>
+          <tr><td>49%</td><td><span class="badge badge-red">Bug (Urgent)</span> — after navigating and returning to the "Explore your school" home screen, the student's courses do not appear</td></tr>
+          <tr><td>9%</td><td><span class="badge badge-red">Bug (Urgent)</span> — same behavior: courses fail to load on the home screen</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong>Impact:</strong> students lose access to their courses.</li>
+      <li><strong>Expected:</strong> courses must load regardless of battery level.</li>
+      <li><strong>Environment:</strong> Production.</li>
+    </ul>
+
+    <h3>Camera testing</h3>
+    <p>Emulator configured with <strong>front camera only</strong>:</p>
+    <ul>
+      <li>Front camera: works correctly (profile photo)</li>
+      <li>Rear camera: <strong>bug</strong> — does not work as expected</li>
+    </ul>
+
+    <h3>Screen resolution testing (tablet)</h3>
+    <p>Tablet emulator (Pixel C, Android 14) at <strong>1080p</strong> and <strong>2560×1800</strong>:</p>
+    <ul>
+      <li>Login, navigation, and profile editing validated at each resolution.</li>
+      <li><strong>Bug:</strong> at an unusual tablet resolution, a platform exception was captured on video.</li>
+    </ul>
+
+    <h3>Sensor testing — GPS and light sensor (Pokémon GO)</h3>
+<pre><code>Scenario: Location permission on first launch
+  Given I install the Pokémon GO app
+  When I launch the app
+  Then a message should ask for location access permission
+
+Scenario: GPS turned off
+  Given I open the Pokémon GO app
+  When my GPS is not enabled for the app
+  Then a message should ask for location access to play</code></pre>
+
+    <h3>Connectivity testing — YouTube (business rule)</h3>
+    <blockquote>Rule under test: "When switching from WiFi to a 3G+ mobile network, video quality must drop below 480p."</blockquote>
+    <p><strong>Documented finding:</strong> on the iPhone 14 Plus Max, the Cellular Data menu offers no 3G option (5G only) — a hardware limitation logged as a test impediment, with evidence.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Jessica Oliveira — QA Portfolio</span>
+    <a href="index.html">← Back to home</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

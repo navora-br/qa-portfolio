@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Checklists — Jessica Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Jessica Oliveira<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="test-plan.html">Test Plan</a>
+      <a href="test-cases.html">Test Cases</a>
+      <a href="bug-reports.html">Bug Reports</a>
+      <a href="mobile-exploratory-testing.html">Mobile</a>
+      <a href="bdd.html">BDD</a>
+      <a href="checklist.html" class="active">Checklists</a>
+      <a class="lang" href="pt/checklist.html" title="Versão em português">PT</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero reveal">
+  <div class="eyebrow">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+    Artifact
+  </div>
+  <h1>Test Checklists</h1>
+  <p class="lead">Reusable checklists I consolidated from my testing projects — a quick roadmap before diving into formal test cases.</p>
+</header>
+
+<main class="container">
+
+  <div class="panel reveal">
+    <h2>Checklist — Web form</h2>
+
+    <h3>Text fields</h3>
+    <ul class="check-list">
+      <li>Name field accepts letters only (rejects numbers and special characters)</li>
+      <li>E-mail field requires a valid format with domain (<code>name@domain.com</code>)</li>
+      <li>E-mail field rejects spaces and text without <code>@</code></li>
+      <li>Phone field accepts digits only</li>
+      <li>Phone field enforces the country's digit count (BR/US)</li>
+      <li>Numeric fields (weight, height, date) reject letters and special characters</li>
+      <li>Character-limited fields enforce the maximum (e.g., 255)</li>
+      <li>Boundary values tested (min−1, min, max, max+1)</li>
+    </ul>
+
+    <h3>Validation &amp; submission</h3>
+    <ul class="check-list">
+      <li>Form is <strong>not</strong> submitted with every field empty</li>
+      <li>Form is <strong>not</strong> submitted with only one field filled</li>
+      <li>Clear error message for each empty required field</li>
+      <li>Success message displayed after a valid submission</li>
+      <li>Duplicate registration shows a failure message</li>
+      <li>Password meets minimum requirements (8+ characters, letters, numbers, specials)</li>
+      <li>Mismatched password confirmation shows an error</li>
+    </ul>
+
+    <h3>Navigation &amp; usability</h3>
+    <ul class="check-list">
+      <li>Every button responds to clicks (no "dead" buttons)</li>
+      <li>Menu links and sublinks load the correct pages</li>
+      <li>Back/forward between pages preserves entered data</li>
+      <li>Readable text (adequate contrast against the background)</li>
+      <li>Consistent language across all screens and buttons</li>
+      <li>Explicit measurement units (hours/days, kg/lb)</li>
+      <li>Mutually exclusive options cannot be checked together</li>
+      <li>Choices can be undone</li>
+    </ul>
+
+    <h3>Cross-browser / devices</h3>
+    <ul class="check-list">
+      <li>Google Chrome</li>
+      <li>Mozilla Firefox</li>
+      <li>Microsoft Edge</li>
+      <li>Safari</li>
+      <li>iOS (responsive layout)</li>
+      <li>Android (responsive layout)</li>
+    </ul>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Checklist — Mobile app</h2>
+
+    <h3>Installation</h3>
+    <ul class="check-list">
+      <li>Install from the official store (App Store / Google Play) successfully</li>
+      <li>Interrupting the install leaves no partially installed app</li>
+      <li>Uninstall and reinstall works with full integrity</li>
+    </ul>
+
+    <h3>Device resources</h3>
+    <ul class="check-list">
+      <li>Front and rear cameras work within the app's features</li>
+      <li>Permissions requested at the right moment (camera, location, notifications)</li>
+      <li>App works after denying and later granting a permission</li>
+      <li>GPS: correct behavior with location on/off</li>
+    </ul>
+
+    <h3>Interruptions</h3>
+    <ul class="check-list">
+      <li>Incoming phone call answered and ended: entered data persists</li>
+      <li>SMS/notification read and return to the app: state preserved</li>
+      <li>Banner notifications appear while the app is in the background</li>
+    </ul>
+
+    <h3>Device conditions</h3>
+    <ul class="check-list">
+      <li>High (80%), medium (49%), and critical (9%) battery: app remains functional</li>
+      <li>Different screen resolutions (phone, tablet, 1080p+)</li>
+      <li>Portrait/landscape orientation</li>
+      <li>Connectivity: WiFi, mobile data, and switching between networks</li>
+      <li>Device language changed: app follows it or offers a manual switch</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Jessica Oliveira — QA Portfolio</span>
+    <a href="index.html">← Back to home</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
