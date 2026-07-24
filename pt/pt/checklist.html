@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checklists de Teste — Jessica Oliveira</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://navora-br.github.io/qa-portfolio/pt/checklist.html">
+<meta property="og:site_name" content="Jessica Oliveira — Portfólio de QA">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="Checklists de Teste — Jessica Oliveira">
+<meta property="og:description" content="Checklists reutilizáveis de QA para formulários web e apps mobile.">
+<meta property="og:image" content="https://navora-br.github.io/qa-portfolio/assets/img/og-image.png">
+<meta property="og:image:secure_url" content="https://navora-br.github.io/qa-portfolio/assets/img/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jessica Oliveira — QA Manual Tester, entusiasta de IA. Planos de Teste, Casos de Teste, Bug Reports, QA com IA.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Checklists de Teste — Jessica Oliveira">
+<meta name="twitter:description" content="Checklists reutilizáveis de QA para formulários web e apps mobile.">
+<meta name="twitter:image" content="https://navora-br.github.io/qa-portfolio/assets/img/og-image.png">
+<meta name="twitter:image:alt" content="Jessica Oliveira — QA Manual Tester, entusiasta de IA. Planos de Teste, Casos de Teste, Bug Reports, QA com IA.">
+<link rel="canonical" href="https://navora-br.github.io/qa-portfolio/pt/checklist.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Jessica Oliveira<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="plano-de-teste.html">Plano de Teste</a>
+      <a href="casos-de-teste.html">Casos de Teste</a>
+      <a href="bug-reports.html">Bug Reports</a>
+      <a href="teste-exploratorio-mobile.html">Mobile</a>
+      <a href="bdd.html">BDD</a>
+      <a href="checklist.html" class="active">Checklists</a>
+      <a class="lang" href="../checklist.html" title="English version">EN</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero reveal">
+  <div class="eyebrow">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+    Artefato
+  </div>
+  <h1>Checklists de Teste</h1>
+  <p class="lead">Checklists reutilizáveis que consolidei a partir dos meus projetos de teste — um roteiro rápido antes de aprofundar em casos de teste formais.</p>
+</header>
+
+<main class="container">
+
+  <div class="panel reveal">
+    <h2>Checklist — Formulário web</h2>
+
+    <h3>Campos de texto</h3>
+    <ul class="check-list">
+      <li>Campo nome aceita somente letras (rejeita números e caracteres especiais)</li>
+      <li>Campo e-mail exige formato válido com domínio (<code>nome@dominio.com</code>)</li>
+      <li>Campo e-mail rejeita espaços e texto sem <code>@</code></li>
+      <li>Campo telefone aceita somente números</li>
+      <li>Campo telefone respeita a quantidade de dígitos do país (BR/EUA)</li>
+      <li>Campos numéricos (peso, altura, data) rejeitam letras e caracteres especiais</li>
+      <li>Campos com limite de caracteres respeitam o máximo (ex.: 255)</li>
+      <li>Valores limítrofes testados (mín−1, mín, máx, máx+1)</li>
+    </ul>
+
+    <h3>Validação e envio</h3>
+    <ul class="check-list">
+      <li>Formulário <strong>não</strong> é enviado com todos os campos vazios</li>
+      <li>Formulário <strong>não</strong> é enviado com apenas um campo preenchido</li>
+      <li>Mensagem de erro clara para cada campo obrigatório vazio</li>
+      <li>Mensagem de sucesso exibida após envio válido</li>
+      <li>Cadastro duplicado exibe mensagem de falha</li>
+      <li>Senha respeita requisitos mínimos (8+ caracteres, letras, números, especiais)</li>
+      <li>Confirmação de senha diferente exibe erro</li>
+    </ul>
+
+    <h3>Navegação e usabilidade</h3>
+    <ul class="check-list">
+      <li>Todos os botões respondem ao clique (nenhum botão "morto")</li>
+      <li>Links do menu e sublinks carregam as páginas corretas</li>
+      <li>Botões voltar/avançar entre páginas mantêm os dados preenchidos</li>
+      <li>Textos legíveis (contraste adequado com o fundo)</li>
+      <li>Idioma consistente em todas as telas e botões</li>
+      <li>Unidades de medida explícitas (horas/dias, kg/lb)</li>
+      <li>Opções mutuamente exclusivas não podem ser marcadas juntas</li>
+      <li>Escolhas podem ser desfeitas</li>
+    </ul>
+
+    <h3>Cross-browser / dispositivos</h3>
+    <ul class="check-list">
+      <li>Google Chrome</li>
+      <li>Mozilla Firefox</li>
+      <li>Microsoft Edge</li>
+      <li>Safari</li>
+      <li>iOS (layout responsivo)</li>
+      <li>Android (layout responsivo)</li>
+    </ul>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Checklist — Aplicativo mobile</h2>
+
+    <h3>Instalação</h3>
+    <ul class="check-list">
+      <li>Instalação pela loja oficial (App Store / Google Play) com sucesso</li>
+      <li>Interrupção da instalação não deixa app parcialmente instalado</li>
+      <li>Desinstalar e reinstalar funciona sem perda de integridade</li>
+    </ul>
+
+    <h3>Recursos do dispositivo</h3>
+    <ul class="check-list">
+      <li>Câmera frontal e traseira funcionam nas funções do app</li>
+      <li>Permissões solicitadas no momento correto (câmera, localização, notificações)</li>
+      <li>App funciona após negar e depois conceder permissão</li>
+      <li>GPS: comportamento correto com localização ativada/desativada</li>
+    </ul>
+
+    <h3>Interrupções</h3>
+    <ul class="check-list">
+      <li>Chamada telefônica recebida e encerrada: dados preenchidos permanecem</li>
+      <li>SMS/notificação lida e retorno ao app: estado preservado</li>
+      <li>Notificações banner aparecem com o app em segundo plano</li>
+    </ul>
+
+    <h3>Condições do dispositivo</h3>
+    <ul class="check-list">
+      <li>Bateria em nível alto (80%), médio (49%) e crítico (9%): app funcional</li>
+      <li>Diferentes resoluções de tela (celular, tablet, 1080p+)</li>
+      <li>Orientação retrato/paisagem</li>
+      <li>Conectividade: WiFi, dados móveis e troca entre redes</li>
+      <li>Idioma do dispositivo alterado: app acompanha ou oferece troca manual</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Jessica Oliveira — Portfólio de QA</span>
+    <a href="index.html">← Voltar ao início</a>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
