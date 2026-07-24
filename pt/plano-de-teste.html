@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano de Teste — Jessica Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Jessica Oliveira<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="plano-de-teste.html" class="active">Plano de Teste</a>
+      <a href="casos-de-teste.html">Casos de Teste</a>
+      <a href="bug-reports.html">Bug Reports</a>
+      <a href="teste-exploratorio-mobile.html">Mobile</a>
+      <a href="bdd.html">BDD</a>
+      <a href="checklist.html">Checklists</a>
+      <a class="lang" href="../test-plan.html" title="English version">EN</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero reveal">
+  <div class="eyebrow">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
+    Artefato
+  </div>
+  <h1>Plano de Teste</h1>
+  <p class="lead">Plano de teste que escrevi para uma plataforma escolar online (ambiente de treinamento), cobrindo as funcionalidades de <strong>cadastro</strong> e <strong>login</strong>.</p>
+</header>
+
+<main class="container">
+
+  <div class="panel reveal">
+    <h2>Introdução</h2>
+    <p>A plataforma é uma escola online que oferece cursos de profissões em alta no mercado de trabalho. Através do site ou app, os alunos têm acesso a cursos com professores qualificados, com conteúdo em vídeo-aulas e tarefas. O site deve ser acessível por quaisquer computadores ou dispositivos móveis ligados à internet. Funcionalidades principais: cadastro, login e acesso ao conteúdo.</p>
+    <h3>Arquitetura</h3>
+    <p>O framework utilizado para a implementação é baseado em computação em nuvem.</p>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Funcionalidades</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Funcionalidade</th><th>Comportamento esperado</th><th>Verificações</th><th>Critérios de aceite</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Cadastro</strong></td>
+            <td>Ao digitar nome, e-mail, número de telefone, senha e clicar em "Conectar-se", o usuário será redirecionado para a página de cadastro efetuado com sucesso e receberá um e-mail com link de ativação da conta.</td>
+            <td>
+              <ul>
+                <li>Senha mínima de 8 caracteres, com letras, números e caracteres especiais</li>
+                <li>Redirecionar para tela de cadastro efetuado com sucesso</li>
+                <li>Mensagem de falha em caso de usuário duplicado</li>
+                <li>Mensagem de falha se a senha não atender os requisitos mínimos</li>
+                <li>Mensagem de falha em caso de campo obrigatório incompleto ou faltando</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Usuário de e-mail novo</li>
+                <li>Senha válida</li>
+                <li>Telefone válido</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Login</strong></td>
+            <td>Ao digitar e-mail e senha corretamente, o usuário loga na plataforma. O sistema deve aceitar que um usuário já logado em outro dispositivo se logue novamente.</td>
+            <td>
+              <ul>
+                <li>Login no sistema com sucesso</li>
+                <li>Usuário inválido</li>
+                <li>Senha inválida</li>
+                <li>Campo obrigatório não preenchido</li>
+                <li>Telefone inválido</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Ter acessibilidade no sistema</li>
+                <li>Redirecionar a tela</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Estratégia de Teste</h2>
+    <h3>Escopo de testes</h3>
+    <p>O plano de testes abrange todas as funcionalidades descritas na tabela acima. Este plano <strong>exclui</strong> o acesso às vídeo-aulas.</p>
+    <p>Serão executados testes em todos os níveis:</p>
+    <ul>
+      <li><strong>Testes não funcionais</strong> — testes de usabilidade e desempenho para detectar possíveis melhorias.</li>
+      <li><strong>Testes automatizados</strong> — testes end-to-end nas funcionalidades de login e cadastro.</li>
+      <li><strong>Testes manuais</strong> — todas as funcionalidades testadas manualmente pelo time de qualidade, seguindo a documentação de cenários de teste e este Test Plan.</li>
+      <li><strong>Versão Beta</strong> — versão beta lançada para 30 usuários pré-cadastrados antes do release.</li>
+    </ul>
+    <h3>Ambiente e ferramentas</h3>
+    <p>Os testes serão feitos no <strong>ambiente de homologação</strong>, que contém as mesmas configurações do ambiente de produção, com massa de dados gerada previamente pelo time de qualidade.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Ferramenta</th><th>Time</th><th>Descrição</th></tr></thead>
+        <tbody>
+          <tr><td>Postman</td><td>Qualidade</td><td>Ferramenta para testes de API</td></tr>
+          <tr><td>Selenium</td><td>Qualidade</td><td>Ferramenta para testes end-to-end</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Classificação de Bugs</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Severidade</th><th>Descrição</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><span class="badge badge-red">Blocker</span></td><td>Bug que bloqueia o teste de uma função ou feature; causa crash na aplicação; botão não funciona impedindo o uso completo da funcionalidade; bloqueia a entrega</td></tr>
+          <tr><td>2</td><td><span class="badge badge-amber">Grave</span></td><td>Funcionalidade não funciona como o esperado; input incomum causa efeitos irreversíveis</td></tr>
+          <tr><td>3</td><td><span class="badge badge-blue">Moderada</span></td><td>Funcionalidade não atinge certos critérios de aceitação, mas em geral não é afetada; mensagem de erro ou sucesso não é exibida</td></tr>
+          <tr><td>4</td><td><span class="badge badge-gray">Pequena</span></td><td>Quase nenhum impacto na funcionalidade, porém atrapalha a experiência; erro ortográfico; pequenos erros de UI</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Definição de Pronto</h3>
+    <p>Serão consideradas prontas as funcionalidades que passarem pelas verificações e testes descritos neste Test Plan, não apresentarem bugs com severidade acima de <em>Minor</em> e passarem por uma validação de negócio de responsabilidade do time de produto.</p>
+  </div>
+
+  <div class="panel reveal">
+    <h2>Plano de Teste — Projeto Final "Amantes do Trigo"</h2>
+    <p>No projeto de conclusão dos meus estudos de QA, parti de uma <strong>história de usuário</strong> para construir o plano de teste de um site institucional:</p>
+    <blockquote>"Eu, como empresário no ramo de agricultura, quero validar a funcionalidade do meu novo site. Preciso de algo simples e intuitivo."</blockquote>
+    <p>O plano seguiu a mesma estrutura acima (introdução, funcionalidades com critérios de aceite, estratégia, severidades e Definição de Pronto), com foco em <strong>usabilidade</strong>: links do menu funcionando, fácil leitura dos textos e validação do formulário de interesse aceitando somente números de telefone válidos.</p>
+    <p>Os casos de teste e bugs encontrados nesse projeto estão em <a href="casos-de-teste.html">Casos de Teste</a> e <a href="bug-reports.html">Bug Reports</a>.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© Jessica Oliveira — Portfólio de QA</span>
+    <a href="index.html">← Voltar ao início</a>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
